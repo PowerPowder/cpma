@@ -15,5 +15,9 @@ int main(void)
 
     printf("The sum is %d/%d\n", result_num, result_denom);
 
+    // ex6:
+    // having spaces has no effect on integers so adding spaces beforehand won't
+    // affect the input and the user can choose either to use spaces or not
+
     return 0;
 }
