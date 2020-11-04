@@ -18,7 +18,9 @@ int main(void)
     // printf("%1d%1d%1d%1d%1d\n", i1, i2, i3, i4, i5);
     // printf("%1d%1d%1d%1d%1d\n", j1, j2, j3, j4, j5);
 
-    printf("Check digit: %d\n", 9 - ((total - 1) % 10));
+    // printf("Check digit: %d\n", 9 - ((total - 1) % 10));
+    // Exercise 8 - yes it does work
+    printf("Check digit: %d\n", (10 - (total % 10)) % 10);
 
     return 0;
 }
