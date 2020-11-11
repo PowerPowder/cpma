@@ -1,0 +1,7 @@
+4. (i < j) - (j < i)
+
+5. It is legal, but it runs for any integer value.
+    n is greater than or equal to 1: (n >= 1) evaluates to 1 which is less than 10 (1 <= 10)
+    n is less than 1: (n >= 1) evaluates to 0 which is less than 10 (0 <= 10)
+    
+6. It is legal, but (n == 1-10) is actually (n == -9), so this is only true when n is -9
