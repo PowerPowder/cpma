@@ -1,0 +1,1 @@
+yes they are equivalent, the opposite of (i >= j) is (i < j)
