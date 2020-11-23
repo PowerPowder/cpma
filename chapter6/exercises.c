@@ -2,8 +2,6 @@
 
 int main(void)
 {
-    int i, j;
-
     // Exercise 1
     // 1 2 4 8 16 32 64 128
 
@@ -75,6 +73,38 @@ int main(void)
         // i /= 2;
     // }
 
+    // Exercise 10
+    // By putting a label above the while loop or for loop and where the continue
+    // statement would go, add 'goto X' to emulate a continue statement.
+
+    // Exercise 11
+    // 2+4+6+8 = 20
+    // int sum = 0;
+    // for (i = 0; i < 10; i++)
+    // {
+        // if (i % 2)
+            // continue;
+        // sum += i;
+    // }
+    // printf("%d\n", sum);
+
+    // Exercise 12
+    // int d, n;
+    // for (d = 2; d < n; d++)
+        // if (d * d > n || n % d == 0)
+            // break;
+
+    // Exercise 13
+    // int n, m;
+    // for (n = 0; m > 0; n++, m /= 2)
+        // ;
+    
+    // Exercise 14
+    // there is a ';' after the if statement, making it a null statement,
+    // removing the ';' fixes the problem.
+    // int n = 4;
+    // if (n % 2 == 0);
+        // printf("n is even\n");
 
     return 0;
 }
