@@ -21,5 +21,46 @@ int main(void)
     // exercise 3
     // (b) is not a legal constant (short float);
 
+    // exercise 4
+    /*
+        char c;
+
+        a) i += c           legal
+        b) c = 2 * c - 1    legal
+        c) putchar(c)       legal
+        d) printf(c)        illegal
+    */
+
+    // exercise 5
+    /*
+        a) 'A'          legal
+        b) 0b1000001    illegal - gcc gives binary constants warning from gcc
+        c) 0101         legal
+        d) 0x41         legal
+    */
+
+    // exercise 6
+    /*
+        a) char
+        b) short
+        c) short
+        d) int
+    */
+
+    // exercise 7
+    /*
+        a) \b  \10 
+        b) \n  \12
+        c) \r  \15 
+        d) \t  \11
+    */
+
+    // exercise 8
+    /*
+        a) \b  \x08
+        b) \n  \x0a
+        c) \r  \x0d
+        d) \t  \x09
+    */
     return 0;
 }
