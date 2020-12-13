@@ -62,5 +62,60 @@ int main(void)
         c) \r  \x0d
         d) \t  \x09
     */
+
+    // exercise 9
+    /*
+        int i, j;
+        i / j + 'a';
+        Expression is type int despite the division
+    */
+
+    // exercise 10
+    /*
+        int i; long j; unsigned int k;
+        i + (int) j * k
+        Expression is type unsigned int
+    */
+
+    // exercise 11
+    /*
+        int i; float f; double d;
+        i * f / d;
+        Expression is type double
+    */
+
+    // exercise 12
+    /*
+        int i; float f; double d;
+        d = i + f;
+        The expression 'i + f' is converted to float.
+        Then the epxression is converted to double because that is the type of the variable.
+    */
+
+    // exercise 13
+    /*
+        char c = '\1';
+        short s = 2;
+        int i = -3;
+        long m = 5;
+        float f = 6.5f;
+        double d = 7.5;
+
+        a) c * i   ->  -3    (short int)
+        b) s + m   ->   7    (long int)
+        c) f / c   ->   6.5  (float)
+        d) d / s   ->   3.75 (double)
+        e) f - d   ->  -1.5  (double)
+        f) (int) f ->   6    (int)
+    */
+
+    // exercise 14
+    /*
+        float frac_part, f;
+        frac_part = f - (int) f;
+
+        No, there is no problem, it is all in the correct presidence;
+    */
+
     return 0;
 }
