@@ -106,5 +106,12 @@ int main(void)
     // if (n % 2 == 0);
         // printf("n is even\n");
 
+    // Exercise 15
+    // typedef char Int8;
+    // typedef short Int16;
+    // typedef int Int32;
+
+    // printf("%ld %ld %ld", sizeof (Int8), sizeof(Int16), sizeof(Int32));
+
     return 0;
 }
