@@ -10,3 +10,6 @@
 
 3.  The declaration would go as follows for c89:
     bool weekend[] = {true, false, false, false, false, false, false, true}
+
+4.  The declaration would go as follows for c99:
+    bool weekend[] = {[0] = true, [6] = true}
