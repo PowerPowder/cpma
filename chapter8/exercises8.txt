@@ -13,3 +13,14 @@
 
 4.  The declaration would go as follows for c99:
     bool weekend[] = {[0] = true, [6] = true}
+
+5.  Fibonacci sequence in 40 elements of an array:
+	int fib[40] = {0}, x, y, z;
+	x = 0, y = 1;
+	for (int i = 0; i < (int) (sizeof(fib) / sizeof(fib[0])); i++)
+	{
+		fib[i] = x + y;
+		z = x + y;
+		x = y;
+		y = z;
+	}
