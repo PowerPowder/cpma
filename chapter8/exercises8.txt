@@ -69,6 +69,11 @@
     }
     m_average /= (int)(sizeof(temperature_readings) / sizeof(temperature_readings[0]));
 
+********************************************************
+The following exercises use the macro:
+    #define SIZE (int)(sizeof(board) / sizeof(board[0]))
+********************************************************
+    
 10. Make an 8x8 chess board as chars (array declaration):
     #define SIZE (int)(sizeof(board) / sizeof(board[0]))
     char board[8][8] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
@@ -84,5 +89,18 @@
 	{
 		for (int j = 0; j < SIZE; j++)
 			printf("%c ", a[i][j]);
+		printf("\n");
+	}
+
+11. Make an 8x8 checker board and fill it with a loop:
+	char board[8][8];
+	for (int i = 0; i < SIZE; i++)
+		for (int j = 0; j < SIZE; j++)
+			board[i][j] = (i + j) % 2 == 0 ? 'B' : 'R';
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		for (int j = 0; j < SIZE; j++)
+			printf("%c ", board[i][j]);
 		printf("\n");
 	}
