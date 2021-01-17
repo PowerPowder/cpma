@@ -1,0 +1,2 @@
+1. It is inferior because if the type was changed, then in all occurances
+   of the expression 'sizeof(a) / sizeof(t)', 't' would need to be changed
