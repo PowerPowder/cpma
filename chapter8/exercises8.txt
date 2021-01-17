@@ -7,3 +7,6 @@
     a['1' - '0']
     that would get the first element as the ascii table depicts '1' as 49 and '0' as 48 hence being
     49 - 48 = 1
+
+3.  The declaration would go as follows for c89:
+    bool weekend[] = {true, false, false, false, false, false, false, true}
