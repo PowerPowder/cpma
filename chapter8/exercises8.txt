@@ -1,2 +1,9 @@
-1. It is inferior because if the type was changed, then in all occurances
-   of the expression 'sizeof(a) / sizeof(t)', 't' would need to be changed
+1.  It is inferior because if the type was changed, then in all occurances of the expression:
+    sizeof(a) / sizeof(t)
+    't' would need to be changed.
+
+2.  To use a digit (char, eg: '1', '2', '3', etc.) as an array subscript, to 'scale' you must
+    subtract '0'. The expression would be:
+    a['1' - '0']
+    that would get the first element as the ascii table depicts '1' as 49 and '0' as 48 hence being
+    49 - 48 = 1
