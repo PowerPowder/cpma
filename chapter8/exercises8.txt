@@ -55,3 +55,7 @@
                                  {1, 1, 1, 1, 1, 1, 1},     // 8
                                  {1, 1, 1, 1, 0, 1, 1},     // 9
     };
+
+8.  Two-dimensional array that contains a monthly temperature reading. 30 days (rows) and 24 hours
+    for each day (columns):
+    int temperature_readings[30][24];
