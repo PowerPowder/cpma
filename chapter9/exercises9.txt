@@ -1,0 +1,83 @@
+1.  One error is the missing type for the parameter 'height', and the other error is 'double product'
+    which is not inside the curly braces.
+
+2.  Function that checks if both x and y are between 0 and n-1:
+    int check(int x, int y, int n)
+    {
+        if ((x >= 0) && (x <= n-1) &&
+            (y >= 0) && (y <= n-1))
+            return 1;
+        return 0;
+    }
+
+3.  Function that gets the GCD of two integers:
+    int gcd(int m, int n)
+    {
+        int r;
+        
+        while (n != 0)
+        {
+            r = m % n;
+            m = n;
+            n = r;
+        }
+
+        return m;
+    }
+
+4.  Function that returns the day of the year from 1 to 366
+    int day_of_year(int month, int day, int year)
+    {
+        int days_in_months = 0, i;
+        for (i = 1; i < month; i++)
+        {
+            switch (i)
+            {
+                case 2:
+                    days_in_months += 28;
+                    break;
+                case 4: case 6: case 9: case 11:
+                    days_in_months += 30;
+                    break;
+                default:
+                    days_in_months += 31;
+                    break;
+            }
+        }
+
+        if (year % 4 == 0)
+            days_in_months++;
+
+        return days_in_months + day;
+    }
+
+5.  Function to check how many digits are in 'n'
+    int num_digits(int n)
+    {
+        int digits = 0;
+        while (n > 0)
+        {
+            n /= 10;
+            digits++;
+        }
+
+        return digits;
+    }
+
+6.  Function to get the kth digit in n from the right
+    int digit(int n, int k)
+    {
+        int a[10] = {0}, i = 0;
+        while (n > 0)
+        {
+            a[i++] = n % 10;
+            n /= 10;
+        }
+
+        if (k > i)
+            return 0;
+
+        return a[k-1];
+    }
+
+7.  All of the statements are legal, but ints and doubles are casted to their respective type.
