@@ -81,3 +81,9 @@
     }
 
 7.  All of the statements are legal, but ints and doubles are casted to their respective type.
+
+8.  Valid function protoypes for a function that returns nothing and has a single double parameter.
+    a) void f(double x);    - valid
+    b) void f(double);      - valid
+    c) void f(x);           - invalid, needs the type for the parameter
+    d) f(double x);         - invalid, needs the return type of the function
