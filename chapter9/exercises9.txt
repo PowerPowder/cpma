@@ -200,3 +200,24 @@
         }
         return white - black;
     }
+
+14. The error is that it returns false for the first element if it's not 0. To fix it remove the else statement.
+    int i;
+    for (i = 0; i < n; i++)
+        if (a[i] == 0)
+            return true;
+    return false;   // deleted else above this return statement
+
+15. Not sure if this is any clearer than the example, but at least it makes more sense intrinsically: 
+    double median(double x, double y, double z)
+    {
+        double middle;
+        if ((x > y && x < z) || (x > z && x < y))
+            middle = x;
+        else if ((y > x && y < z) || (y > z && y < x))
+            middle = y;
+        else if ((z > x && z < y) || (z > y && z < x))
+            middle = z;
+
+        return middle;
+    }
