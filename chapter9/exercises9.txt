@@ -87,3 +87,116 @@
     b) void f(double);      - valid
     c) void f(x);           - invalid, needs the type for the parameter
     d) f(double x);         - invalid, needs the return type of the function
+
+9.  The output of the program would be: 'i = 1, j = 2'. The swap function doesn't work as intended
+    because variables within function are only kept within the function.
+
+10. a)  int largest(int n, int a[])
+        {
+            int largest = a[0];
+            for (int i = 0; i < n; i++)
+                if (a[i] > largest)
+                    largest = a[i];
+
+            return largest;
+        }
+    b)  double average(int n, int a[])
+        {
+            double total = 0;
+            for (int i = 0; i < n; i++)
+                total += a[i];
+
+            return total / n;
+        }
+    c)  int positive(int n, int a[])
+        {
+            int pos = 0;
+            for (int i = 0; i < n; i++)
+                if (a[i] >= 0)
+                    pos++;
+
+            return pos;
+        }
+
+11. float compute_GPA(char grades[], int n)
+    {
+        float total;
+        int i;
+        for (i = 0; i < n; i++)
+        {
+            switch (grades[i])
+            {
+                case 'A':
+                    total += 4.0f;
+                    break;
+                case 'B':
+                    total += 3.0f;
+                    break;
+                case 'C':
+                    total += 2.0f;
+                    break;
+                case 'D':
+                    total += 1.0f;
+                    break;
+                case 'F':
+                    total += 0.0f;
+                    break;
+            }
+        }
+        return total / n;
+    }
+
+12. double inner_product(double a[], double b[], int n)
+    {
+        double total = 0;
+        for (int i = 0; i < n; i++)
+            total += a[i] * b[i];
+
+        return total;
+    }
+
+13. int evaluate_position(char board[8][8])
+    {
+        int white = 0, black = 0;
+
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                switch (board[i][j])
+                {
+                    case 'Q':
+                        white += 9;
+                        break;
+                    case 'R':
+                        white += 5;
+                        break;
+                    case 'B':
+                        white += 3;
+                        break;
+                    case 'N':
+                        white += 3;
+                        break;
+                    case 'P':
+                        white += 1;
+                        break;
+                    case 'q':
+                        black += 9;
+                        break;
+                    case 'r':
+                        black += 5;
+                        break;
+                    case 'b':
+                        black += 3;
+                        break;
+                    case 'n':
+                        black += 3;
+                        break;
+                    case 'p':
+                        black += 1;
+                        break;
+                }
+            }
+        }
+        return white - black;
+    }
