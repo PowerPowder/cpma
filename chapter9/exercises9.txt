@@ -221,3 +221,31 @@
 
         return middle;
     }
+
+16. Condensed fact function:
+    int fact(int n)
+    {
+        return n == 0 ? 1 : n * fact(n-1);
+    }
+
+17. fact function but not recursive
+    int fact(int n)
+    {
+        int i, result = 1;
+
+        for (i = 1; i <= n; i++)    // could multiple result next to i++
+            result *= i;
+        return result;
+    }
+
+18. GCD function from ex3 but recursive:
+    int gcd(int m, int n)
+    {
+        if (n == 0)
+            return m;
+        else
+            return gcd2(n, m % n);
+    }
+
+19. The mystery function converts an integer into binary by printing out a 0 or a 1 if the number was
+    even or odd from the halved integer.
