@@ -1,0 +1,14 @@
+1.  List all variable and parameter names visibile in that scope
+    a) f function: a, b, c
+    b) g function: a, d
+    c) block with e: a, d, e
+    d) main function: a, f
+
+2.  List all variable and parameter names visibile in that scope
+    a) f function: b (in f, external variable b is hidden), c, d
+    b) g function: b, c (in g, external variable c is hidden), a
+    c) block with a and d: a, d, c (in g, external variable c is hidden), b
+    d) main function: b, c (in main, external variable c is hidden), d
+
+3.  One external, one local, one as a parameter, depending on if statements, for loops, switch
+    statements all can have one each.
