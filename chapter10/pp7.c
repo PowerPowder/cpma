@@ -12,7 +12,16 @@ void process_digit(int digit, int position);
 void print_digits_array(void);
 
 // Stores data representing the correspondence between digits and segments
-int segments[MAX_DIGITS][7] = {{0}};
+const int segments[10][7] = {{1, 1, 1, 1, 1, 1, 0},     // 0
+                             {0, 1, 1, 0, 0, 0, 0},     // 1
+                             {1, 1, 0, 1, 1, 0, 1},     // 2
+                             {1, 1, 1, 1, 0, 0, 1},     // 3
+                             {0, 1, 1, 0, 0, 1, 1},     // 4
+                             {1, 0, 1, 1, 0, 1, 1},     // 5
+                             {1, 0, 1, 1, 1, 1, 1},     // 6
+                             {1, 1, 1, 0, 0, 0, 0},     // 7
+                             {1, 1, 1, 1, 1, 1, 1},     // 8
+                             {1, 1, 1, 1, 0, 1, 1}};    // 9
 
 // The character data for all digits
 char digits[3][MAX_DIGITS * 4];
@@ -27,7 +36,7 @@ int main(void)
 
     while ((n = getchar()) != '\n')
     {
-        if (n >= '0' && n <= '9')
+        if (n >= '0' && n <= '9' && pos < 10)
             process_digit(n - '0', pos++);
     }
 
@@ -54,82 +63,9 @@ void clear_digits_array(void)
 
 void process_digit(int digit, int position)
 {
-    switch (digit)
-    {
-        case 0:
-            segments[position][0] = 1;
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            segments[position][3] = 1;
-            segments[position][4] = 1;
-            segments[position][5] = 1;
-            break;
-        case 1:
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            break;
-        case 2:
-            segments[position][0] = 1;
-            segments[position][1] = 1;
-            segments[position][3] = 1;
-            segments[position][4] = 1;
-            segments[position][6] = 1;
-            break;
-        case 3:
-            segments[position][0] = 1;
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            segments[position][3] = 1;
-            segments[position][6] = 1;
-            break;
-        case 4:
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            segments[position][5] = 1;
-            segments[position][6] = 1;
-            break;
-        case 5:
-            segments[position][0] = 1;
-            segments[position][2] = 1;
-            segments[position][3] = 1;
-            segments[position][5] = 1;
-            segments[position][6] = 1;
-            break;
-        case 6:
-            segments[position][0] = 1;
-            segments[position][2] = 1;
-            segments[position][3] = 1;
-            segments[position][4] = 1;
-            segments[position][5] = 1;
-            segments[position][6] = 1;
-            break;
-        case 7:
-            segments[position][0] = 1;
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            break;
-        case 8:
-            segments[position][0] = 1;
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            segments[position][3] = 1;
-            segments[position][4] = 1;
-            segments[position][5] = 1;
-            segments[position][6] = 1;
-            break;
-        case 9:
-            segments[position][0] = 1;
-            segments[position][1] = 1;
-            segments[position][2] = 1;
-            segments[position][3] = 1;
-            segments[position][5] = 1;
-            segments[position][6] = 1;
-            break;
-    }
-
     for (int i = 0; i < 7; i++)
     {
-        if (segments[position][i])
+        if (segments[digit][i])
         {
             switch (i)
             {
