@@ -1,0 +1,9 @@
+1.  i is a var, p is a pointer to i, which are aliases for i:
+    a) *p is an alias
+    b) &p is not an alias
+    c) *&p is not an alias
+    d) &*p is not an alias
+    e) *i is not an alias
+    f) &i is not an alias
+    g) *&i is an alias
+    h) &*i is not an alias
