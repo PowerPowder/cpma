@@ -7,3 +7,14 @@
     f) &i is not an alias
     g) *&i is an alias
     h) &*i is not an alias
+
+2.  If i is an int variable and p and q are pointers to int, which of the following assignments are legal?
+    a) p = i;       legal
+    b) *p = &i;     legal
+    c) &p = q;      illegal
+    d) p = &q;      legal
+    e) p = *&q;     legal
+    f) p = q;       legal
+    g) p = *q;      legal
+    h) *p = q;      legal
+    i) *p = *q;     legal
