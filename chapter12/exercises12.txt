@@ -1,0 +1,17 @@
+1.                 p              q
+    int a[] = {5, 15, 34, 54, 14, 2, 52, 72};
+    int *p = &a[1], *q = &a[5];
+
+    a) *(p+3)  is 54
+    b) *(q-3)  is 34
+    c) q-p     is 4
+    d) p < q   is 1 - true
+    e) *p < *q is 0 - false
+
+2.  low, middle, high are pointers, low and high point to array elements, why isn't this legal?
+    middle = (low + high) / 2;
+    You can't add pointers together, only can minus them. To fix:
+
+	int n = 7;
+	high = &a[n];
+	middle = high - (n / 2);
