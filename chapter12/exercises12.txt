@@ -102,3 +102,51 @@
         for (p = a; p < a + n; p++)
             *p = 0;
     }
+
+9.  Write the function: double inner_product(const double *a, const double *b, int n);
+    double inner_product(const double *a, const double *b, int n)
+    {
+        const double *p, *q;
+        double product = 0;
+        for (p = a, q = b; p < a + n; p++, q++)
+            product += *p * *q;
+
+        return product;
+    }
+
+10. Modify find_middle (section 11.5) to use pointer arithmetic    
+    int *find_middle(int a[], int n)
+    {
+        return a + n / 2;
+    }
+
+11. Rewrite find_largest to use pointer arithmetic    
+    int find_largest(int a[], int n)
+    {
+        int *p, max;
+        
+        max = *a;
+        for (p = a; p < a + n; p++)
+            if (*p > max)
+                max = *p;
+
+        return max;
+    }
+
+12. Write the following function (prototype is long so I just went straight to the definition):
+    void find_two_largest(const int *a, int n, int *largest, int *second_largest)
+    {
+        const int *p;
+        int fl = *a, sl = *a;
+
+        for (p = a; p < a + n; p++)
+            if (*p > fl)
+                fl = *p;
+
+        for (p = a; p < a + n; p++)
+            if (*p > sl && *p < fl)
+                sl = *p;
+                
+        *largest = fl;
+        *second_largest = sl;
+    }
