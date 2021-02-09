@@ -150,3 +150,27 @@
         *largest = fl;
         *second_largest = sl;
     }
+
+13. Rewrite indent (section 8.2) to use a pointer to step through the array:
+    double indent[N][N];
+    int row, col;
+    for (row = 0; row < N; row++)
+        for (col = 0; col < N; col++)
+            if (row == col)
+                indent[row][col] = 1.0;
+            else
+                indent[row][col] = 0.0;
+
+	double indent[N][N];
+	double *p;
+	int count = 0;
+	for (p = indent[0]; p < indent[0] + N * N; p++)
+		*p = (count++ % 11 == 0) ? 1.0 : 0.0;
+
+14. Using the search function from ex7, search all of the temperatures array 'int temperatures[7][24]'
+    for the value 32:
+    search(temperatures[0], 7 * 24, 32);
+
+15. Write a loop that prints all temperatures in row i in the temperatures array (ex14):
+    for (int p = temperatures[i]; p < temperatures[i] + 24; p++)
+        print("%d", *p);
