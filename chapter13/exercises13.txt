@@ -1,0 +1,64 @@
+1.  Which functions don't work with writing the '\n' character:
+    a) printf("%c", '\n');  works
+    b) printf("%c", "\n");  doesn't work, expected a char but given a string
+    c) printf("%s", '\n');  doesn't work, expected a string but given a char
+    d) printf("%s", "\n");  works
+    e) printf('\n');        doesn't work, printf needs a string, not a char
+    f) printf("\n");        works
+    g) putchar('\n');       works
+    h) putchar("\n");       doesn't work, putchar only works with chars
+    i) puts('\n');          doesn't work, puts only works with strings
+    j) puts("\n");          works
+    k) puts("");            works
+
+2.  Show the output and which of the following are legal and illegal for:
+    char *p = "abc";
+    a) putchar(p);      illegal, expected char but given a char pointer
+    b) putchar(*p);     legal, output: a
+    c) puts(p);         legal, output: abc
+    d) puts(*p);        illegal, expected a string, but given a char
+
+3.  What are the values of i (int), s (char *), j (int) from: scanf("%d%s%d", &i, s, &j);
+    if the user put in: 12abc34 56def78
+    i: 12, s: abc34, j: 56 
+
+4.  int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+
+        while ((ch = getchar()) != '\n')
+            if (i < n)
+                str[i++] = ch;
+        str[i] = '\0';
+        return i;
+    }
+    Modify read_line to skip the whitespace at the beginning of the line
+                        stop reading at the first white-space character
+                        stop reading at the first newline character (and store it)
+                        leave behind characters it can't store (break loop)
+
+    int read_line(char str[], int n)
+    {
+        int ch, i = 0;
+        bool stop_at_space = false;
+
+        while ((ch = getchar()) != '\n')
+        {
+            if (stop_at_space && isspace(ch))
+                break;
+            else if (isspace(ch))
+                continue;
+            else if (i < n)
+            {
+                str[i++] = ch;
+                stop_at_space = true;
+            }
+            else
+                break;
+        }
+
+        str[i++] = '\n';
+        str[i] = '\0';
+
+        return i;
+    }
