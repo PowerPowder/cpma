@@ -62,3 +62,43 @@
 
         return i;
     }
+
+5.  Write a function called 'capitalise' that converts all lowercase to uppercase.
+    a) With array subscripting:
+        void capitalise(char s[], int n)
+        {
+            int i;
+            for (i = 0; i < n; i++)
+                s[i] = toupper(s[i]);
+        }
+
+    b) With pointer arithmetic:
+        void capitalise(char *s)
+        {
+            char *p;
+            for (p = s; *p != '\0'; p++)
+                *p = toupper(*p);
+        }
+
+6.  Write a function called censor where it replaces all instances of 'foo' with X's
+    void censor(char *s, char *t)
+    {
+        char *p = t;
+        int match = 0, length = 0;
+
+        while (*p++ != '\0')
+            length++;
+
+        while (*s != '\0')
+        {
+            for (p = t, match = 0; *p != '\0'; p++)
+                if (*(s+match) == *p)
+                    match++;
+
+            if (match == length)
+                while (match-- > 0)
+                    *s++ = 'X';
+            else
+                s++;
+        }
+    }
