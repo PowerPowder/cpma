@@ -186,3 +186,84 @@
         strcat(index_url, domain);
         strcat(index_url, "/index.html");
     }
+
+14. What does the program print?
+
+    #include <stdio.h>
+    int main(void)
+    {
+        char s[] = "Hsjodi", *p;
+        
+        for (p = s; *p; p++)
+            --*p;
+        puts(s);
+        return 0;
+    }
+    
+    s: "Grinch"
+    The program loops through the string "Hsjodi" and for each element it sets the element to itself,
+    minus one, and loops until it hits the null character yielding 0.
+
+15. The function 'f':
+    int f(char *s, char *t)
+    {
+        char *p1, *p2;
+
+        for (p1 = s; *p1; p1++)
+        {
+            for (p2 = t; *p2; p2++)
+                if (*p1 == *p2) break;
+            if (*p2 == '\0') break;
+        }
+        return p1 - s;
+    }
+
+    a) what is f("abcd", "babc")    3 was returned
+    b) what is f("abcd", "bcd")     0 was returned
+    c) what does f return in general?
+        f sees if all elements in s are in t, then return how many from the start of s were in t
+
+16. Reduce count_spaces from section 13.4:
+    int count_spaces(const char *s)
+    {
+        int count = 0;
+
+        for (; *s != '\0'; s++)
+            if (*s == ' ')
+                count++;
+        return count;
+    }
+
+    int count_spaces(const char *s)
+    {
+        int count = 0;
+
+        while (*s++)
+            if (*s == ' ')
+                count++;
+        return count;
+    }
+
+17. Write the function test_extension which returns true if the given extension is in the given
+    filename (not case-sensitive).
+
+    bool test_extension(const char *file_name, const char *extension)
+    {
+        const char *p = file_name;
+
+        while (*p++ != '.')
+            ;
+        while (toupper(*p++) && toupper(*extension++))
+            ;
+        return *extension == '\0' ? true : false;
+    }
+
+18. Write the function remove_filename, where it removes "/index.html" from a url:
+
+    void remove_filename(char *url)
+    {
+        char *p = url+7;	// skip past the two slashes
+        while (*p != '/')
+            p++;
+        *p = '\0';
+    }
