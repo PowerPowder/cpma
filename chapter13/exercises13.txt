@@ -102,3 +102,46 @@
                 s++;
         }
     }
+
+7.  str is an array of characters, which statement is not equivalent to the other three?
+    a) *str = 0;
+    b) str[0] = '\0';
+    c) strcpy(str, "");
+    d) strcat(str, "");
+
+    'a' is not equivalent because it is setting the 0th element to 0 as an int, this does not add
+    '\0' like the other statements.
+
+8.  What is str after the statements:
+    strcpy(str, "tire-bouchon");
+    strcpy(&str[4], "d-or-wi');
+    strcat(str, "red?");
+
+    str: tire-bouchon
+    str: tired-or-wi
+    str: tired-or-wired?
+
+9.  What is s1 after the statements:
+    strcpy(s1, "computer");
+    strcpy(s2, "science");
+    if (strcmp(s1, s2) < 0)
+        strcat(s1, s2);
+    else
+        strcat(s2, s1);
+    s1[strlen(s1)-6] = '\0';
+
+    s1: "computer"
+    strcmp: s1 is less than s2
+    s1: "computerscience"
+    s1: "computer"
+
+10. What's wrong with the function:
+    char *duplicate(const char *p)
+    {
+        char *q;
+
+        strcpy(q, p);
+        return q;
+    }
+
+    the function is returning a local variable which gets deleted after the function runs.
