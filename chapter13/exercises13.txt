@@ -145,3 +145,44 @@
     }
 
     the function is returning a local variable which gets deleted after the function runs.
+
+11. Rewrite the following function to use pointer arithmetic:
+    int strcmp(char *s, char *t)
+    {
+        int i;
+
+        for (i = 0; s[i] == t[i]; i++)
+            if (s[i] == '\0')
+                return 0;
+        return s[i] - t[i];
+    }
+
+    int strcmp(char *s, char *t)
+    {
+        for (; *s == *t; s++, t++)
+            if (*s == '\0')
+                return 0;
+        return *s - *t;
+    }
+
+12. Write a function get_extension where it gets the file extension of a filename:
+    void get_extension(const char *file_name, char *extension)
+    {
+        int location = 0;
+        char *p;
+        for (p = file_name; *p != '\0'; p++)
+            if (*p == '.')
+                location = strlen(file_name) - strlen(p);
+
+        strcpy(extension, file_name+location+1);
+    }
+
+13. Write the function build_index_url where it adds "http://www." to the start of the string and
+    "/index.html" to the end, and stores it in a string:
+
+    void build_index_url(const char *domain, char *index_url)
+    {
+        strcpy(index_url, "http://www.");
+        strcat(index_url, domain);
+        strcat(index_url, "/index.html");
+    }
