@@ -20,3 +20,4 @@ chapter18/*.out
 chapter19/*.out
 chapter20/*.out
 test.c
+.vscode
