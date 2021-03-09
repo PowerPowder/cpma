@@ -1,0 +1,41 @@
+1.  Write macros to compute the values:
+    a) cube of x
+        #define CUBE(x) ((x)*(x)*(x))
+    b) remainder of n when divided by 4
+        #define REM(n) ((n) % 4)
+    c) 1 if x+y is less than 100, 0 otherwise
+        #define PROD(x, y) (((x)+(y)) < 100 ? 1 : 0)
+
+2.  Write a macro that gets the number of elements in a one-dimensional array:
+    #define NELEMS(a) (int)((a) / sizeof((a)))
+
+3.  #define DOUBLE(x) 2*x
+    a) DOUBLE(1+2) -> 2*1+2 -> 2+2 -> 4
+    b) 4/DOUBLE(2) -> 4/2*2 -> 2*2 -> 4
+    c) Fix DOUBLE:
+        #define DOUBLE(x) (2*(x))
+
+4.  Give an example and fix the following macros:
+    a) #define AVG(x,y)   (x+y)/2
+        AVG(1+2, 2+3)  -> 1+2+2+3/2 -> 1+2+2+1 -> 6, should be 4
+        #define AVG(x,y) ((x)+(y)/2)
+    b) #define AREA(x,y)  (x)*(y)
+        AREA(1+2, 2+3) -> 1+2*2+3 -> 1+4+3 -> 8, should be 15
+        #define AREA(x,y) ((x)*(y))
+
+5.  #define TOUPPER(c) ('a'<=(c)&&(c)<='z'?(c)-'a'+'A':(c))
+    a)  strcpy(s, "abcd");
+        i = 0;
+        putchar(TOUPPER(s[++i]));
+
+        s = "abcd", i = 0, TOUPPER(s[1])
+        ('a' <= 'b' && 'b' <= 'z' ? 'b' - 'a' + 'A' : 'b')
+        output: B
+
+    b)  strcpy(s, "0123");
+        i = 0;
+        putchar(TOUPPER(s[++i]));
+
+        s = "0123", i = 0, TOUPPER(s[1])
+        ('a' <= '1' && '1' <= 'z' ? '1' - 'a' + 'A' : '1')
+        output: 1
