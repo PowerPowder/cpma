@@ -39,3 +39,34 @@
         s = "0123", i = 0, TOUPPER(s[1])
         ('a' <= '1' && '1' <= 'z' ? '1' - 'a' + 'A' : '1')
         output: 1
+
+6.  Write a macro called DISP where f is the function, x is a value and y is a value:
+    a) DISP(f,x)
+        #define DISP(f,x) printf(#f "(%g) = %g\n", x, f(x));
+    b) DISP2(f,x,y)
+        #define DISP2(f,x,y) printf(#f "(%g, %g) = %g\n", x, y, f(x, y));
+
+7.  #define GENERIC_MAX(type)       \
+    type type##_max(type x, type y) \
+    {                               \
+        return x > y ? x : y;       \
+    }
+
+    a) expansion of GENERIC_MAX(long):
+        long long_max(long x, long y)
+        {
+            return x > y ? x : y;
+        }
+    b) why doesn't GENERIC_MAX work for unsigned long.
+        when expanded it is: unsigned long unsigned long_max(unsigned ...)
+        there is a space in unsigned long which 'unsigned' is read as the function name and will
+        complain about that.
+    c) a technique to make unsigned long work is to have a separate parameter for the name of the
+       function, eg. GENERIC_MAX(unsigned long, ulong)
+
+8.  Write a macro that expands as: 
+    const char *str = LINE_FILE; -> const char *str = "Line 10 of file foo.c"
+    
+    #define STR_HELPER(x) #x
+    #define STR(x) STR_HELPER(x)
+    #define LINE_FILE "Line " STR(__LINE__) " of file " __FILE__
