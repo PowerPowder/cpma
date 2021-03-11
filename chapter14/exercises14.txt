@@ -70,3 +70,25 @@
     #define STR_HELPER(x) #x
     #define STR(x) STR_HELPER(x)
     #define LINE_FILE "Line " STR(__LINE__) " of file " __FILE__
+
+9.  Write the following macros:
+    a) CHECK(x,y,n)  - 1 if x and y are between 0 and n-1, 0 otherwise
+        #define CHECK(x,y,n) ((x) >= 0 && (x) <= (n)-1 && (y) >= 0 && y <= (n)-1)
+    b) MEDIAN(x,y,n) - Finds the median of x, y, z
+        #define MEDIAN(x,y,z) ((x) > (y)) ? ((x) > (z) ? (z) : (x)) : ((y) > (z) ? (z) : (y)) 
+    c) POLYNOMIAL(x) - computes 3x^5 + 2x^4 - 5x^3 - x^2 + 7x - 6
+        #define POLYNOMIAL(x) (3 * ((x) * (x) * (x) * (x) * (x))) + \
+                              (2 * ((x) * (x) * (x) * (x))) -       \
+                              (5 * ((x) * (x) * (x))) -             \
+                              (1 * ((x) * (x))) +                   \
+                              (7 * (x)) - 6
+
+10. What characteristics of a function would be unsuitable for a macro?
+    Macros don't have type as they just expand whatever is defined in it, this can lead to some bugs
+    where just making it a function instead would make it less error prone. Always having the need
+    to use the '\' character can make the definition look a bit messy as well, forgetting to add
+    them may cause bugs as well.
+
+11. Write a macro that takes a format string and an item, which expands as (for example):
+    fprintf(stderr, "Range error: index = %d\n", index);
+    #define ERROR(s,i) fprintf(stderr, s, i);
