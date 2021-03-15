@@ -220,3 +220,9 @@
     #elif defined SPANISH
         printf("Inserte El Disco 1");
     #endif
+
+16. #define IDENT(x) PRAGMA(ident #x)
+    #define PRAGMA(x) _Pragma(#x)
+    What will IDENT(foo) look like after expansion?
+
+    IDENT(foo) -> PRAGMA(ident "foo") -> _Pragma(#ident "foo") -> _Pragma("ident foo")
