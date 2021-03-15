@@ -92,3 +92,131 @@
 11. Write a macro that takes a format string and an item, which expands as (for example):
     fprintf(stderr, "Range error: index = %d\n", index);
     #define ERROR(s,i) fprintf(stderr, s, i);
+
+12. M is: #define M 10
+    Which of the following will fail (are 0)?
+    a) #if M            doesn't fail
+    b) #ifdef M         doesn't fail
+    c) #ifndef M        fails
+    d) #if defined(M)   doesn't fail
+    e) #if !defined(M)  fails
+
+13. a) Show what the following looks like after preprocessing:
+    #include <stdio.h>
+
+    #define N 100
+
+    void f(void);
+
+    int main(void)
+    {
+        f();
+    #ifdef N
+    #undef N
+    #endif
+        return 0;
+    }
+
+    void f(void)
+    {
+    #if defined(N)
+        printf("N is %d\n", N);
+    #else
+        printf("N is undefined");
+    #endif
+    }
+
+
+    After:
+    #include <stdio.h>
+
+    void f(void);
+
+    int main(void)
+    {
+        f();
+        return 0;
+    }
+
+    void f(void)
+    {
+        printf("N is %d\n", N);
+    }
+
+    b) what is the output: "N is 10\n"
+
+14. Show what the followiing will look like after preprocessing and find all errors:
+    #define N = 10
+    #define INC(x) x+1
+    #define SUB (x,y) x-y
+    #define SQR(x) ((x) * (x))
+    #define CUBE(x) (SQR(x) * (x))
+    #define M1(x,y) x##y
+    #define M2(x,y) #x #y
+
+    int main(void)
+    {
+        int a[N], i, j, k, m;
+
+    #ifndef N
+        i = j;
+    #else
+        j = i;
+    #endif
+
+        i = 10 * INC(j);
+        i = SUB(j, k);
+        i = SQR(SQR(j));
+        i = CUBE(j);
+        i = M1(j, k);
+        puts(M2(i, j));
+
+    #undef SQR
+        i = SQR(j);
+    #define SQR
+        i = SQR(j);
+
+        return 0;
+    }
+
+    Errors:
+        Line 1: 'N = 10' should be 'N 10' (line 11 freaks out because of this)
+        Line 3: 'x-y' should be '((x) - (y))' and 'SUB (x,y)' should be 'SUB(x,y)' (line 17 freaks out
+                because of this)
+        Line 6: for line 20 it is doing 'i = jk' when expanded
+        Line 27: SQR is not defined
+
+    After preprocessing:
+
+    int main(void)
+    {
+        int a[= 10], i, j, k, m;
+
+        j = i;
+
+        i = 10 * j+1;
+        i = j-k;
+        i = (j * j) * (j * j)
+        i = ((j * j) * j);
+        i = jk;
+        // contents of i and contents of j to a string with no space
+        puts(str(i)str(j)) 
+
+        i = SQR(j); // error
+        i = SQR(j);
+
+        return 0;
+    }
+
+15. Write a fragment that prints one of three:
+    Insert Disk 1           (if ENGLISH is defined)
+    Inserez Le Disque 1     (if FRENCH is defined)
+    Inserte El Disco 1      (if SPANISH is defined)
+
+    #if defined ENGLISH
+        printf("Insert Disk 1");
+    #elif defined FRENCH
+        printf("Inserez Le Disque 1");
+    #elif defined SPANISH
+        printf("Inserte El Disco 1");
+    #endif
