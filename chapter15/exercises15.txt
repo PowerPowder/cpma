@@ -55,3 +55,28 @@
     d) Is it necessary to have '#define DEBUG' before '#include "debug.h"'?
         Yes it is because when the preprocessor includes debug.h, it sees that DEBUG is not defined,
         so it defines PRINT_DEBUG to do nothing.
+
+5.  Write a makefile for the scenario: 
+        the files main.c, f1.c, f2.c all include f1.h but f1.c and f2.c include f2.h, name it demo
+
+    demo: main.o f1.o f2.o
+        gcc -o demo main.o f1.o f2.o
+
+    main.o: main.c f1.h
+        gcc -c main.c
+
+    f1.o: f1.c f1.h f2.h
+        gcc -c f1.c
+
+    f2.o: f2.c f1.h f2.h
+        gcc -c f2.c
+
+6.  The following refers to ex5:
+    a) which files need to be compiled when the program is bulit for the first time?
+        demo, main.o, f1.o, f2.o, main.c, f1.c, f2.c
+    b) which files need to be recompiled if f1.c is changed?
+        demo, f1.o, f1.c
+    c) which files need to be recompiled if f1.h is changed?
+        main.o, f1.o, f2.o, main.c, f1.c, f2.c
+    d) which files need to be recompiled if f2.h is changed?
+        demo, f1.o, f1.c, f2.o, f2.c
