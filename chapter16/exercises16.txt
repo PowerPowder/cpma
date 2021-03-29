@@ -1,0 +1,26 @@
+1.  Can the following be in the same program and work?
+    struct { int x, y; } x;
+    struct { int x, y; } y;
+
+    Yes, they are legal on an individual basis, they are both separate despite the same members.
+    They can both be in the same program too.
+
+2.  a) Declare a struct for c1, c2, c3 which have real and imaginary type of doubles:
+        struct {
+            double real;
+            double imaginary;
+        } c1, c2, c3;
+    b) Modify (a) for c1 to have 0.0 and 1.0, c2 to have 1.0 and 0.0, c3 not initialised:
+        struct {
+            double real;
+            double imaginary;
+        } c1 = {0.0, 1.0}, c2 = {1.0, 0.0}, c3;
+    c) Write statements to copy c2 into c1:
+        c1.real = c2.real;
+        c2.imaginary = c2.imaginary;
+
+        or it can be done as:
+        c1 = c2;
+    d) Write statements that add the members in c1 and c2, store them in c3:
+        c3.real = c1.real + c2.real; 
+        c3.imaginary = c1.imaginary + c2.imaginary;
