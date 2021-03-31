@@ -24,3 +24,102 @@
     d) Write statements that add the members in c1 and c2, store them in c3:
         c3.real = c1.real + c2.real; 
         c3.imaginary = c1.imaginary + c2.imaginary;
+
+3.  a)  struct complex {
+            double imaginary;
+            double real;
+        };
+    b)  struct complex c1, c2, c3;
+    c)  struct complex make_complex(double imaginary, double real)
+        {
+            struct complex new;
+            new.imaginary = imaginary;
+            new.real = real;
+            return new;
+        }
+    d)  struct complex add_complex(struct complex c1, struct complex c2)
+        {
+            struct complex new;
+            new.imaginary = c1.imaginary + c2.imaginary;
+            new.real = c1.real + c2.real;
+            return new;
+        }
+
+4.  a)  typedef struct {
+            double imaginary;
+            double real;
+        } Complex;
+    b)  Complex c1, c2, c3;
+    c)  Complex make_complex(double imaginary, double real)
+        {
+            Complex new;
+            new.imaginary = imaginary;
+            new.real = real;
+            return new;
+        }
+    d)  Complex add_complex(Complex c1, Complex c2)
+        {
+            Complex new;
+            new.imaginary = c1.imaginary + c2.imaginary;
+            new.real = c1.real + c2.real;
+            return new;
+        }
+
+5.  For the struct:
+    struct date {
+        int month, day, year;
+    };
+
+    a)  int day_of_year(struct date d)
+        {
+            int days_in_months = 0, i;
+            for (i = 1; i < d.month; i++)
+            {
+                switch (i)
+                {
+                    case 2:
+                        days_in_months += 28;
+                        break;
+                    case 4: case 6: case 9: case 11:
+                        days_in_months += 30;
+                        break;
+                    default:
+                        days_in_months += 31;
+                        break;
+                }
+            }
+
+            if (d.year % 4 == 0)
+                days_in_months++;
+
+            return days_in_months + d.day;
+        }
+
+    b)  int compare_dates(struct date d1, struct date d2)
+        {
+            if (day_of_year(d1) < day_of_year(d2))
+                return -1;
+            else if (day_of_year(d1) > day_of_year(d2))
+                return 1;
+            else
+                return 0;
+        }
+
+6.  struct time {
+        int hours, minutes, seconds;
+    };
+
+    struct time split_time(long total_seconds)
+    {
+        struct time t;
+
+        t.hours = total_seconds / 3600;
+        total_seconds -= t.hours * 60 * 60;
+
+        t.minutes = total_seconds / 60;
+        total_seconds -= t.minutes * 60;
+
+        t.seconds = total_seconds;
+
+        return t;
+    }
