@@ -123,3 +123,127 @@
 
         return t;
     }
+
+7.  struct fraction {
+        int numerator, denominator;
+    };
+    
+    a)  struct fraction to_lowest(struct fraction f)
+        {
+            int r, m = f.numerator, n = f.denominator;
+            
+            while (n != 0)
+            {
+                r = m % n;
+                m = n;
+                n = r;
+            }
+
+            struct fraction new_fraction = {f.numerator / m, f.denominator / m};
+            return new_fraction;
+        }
+
+    b)  struct fraction add_fractions(struct fraction f1, struct fraction f2)
+        {
+            struct fraction new_fraction;
+            new_fraction.numerator = f1.numerator + f2.numerator;
+            new_fraction.denominator = f1.denominator + f2.denominator;
+            return to_lowest(new_fraction);
+        }
+
+    c)  struct fraction subtract_fractions(struct fraction f1, struct fraction f2)
+        {
+            struct fraction new_fraction;
+            new_fraction.numerator = f1.numerator - f2.numerator;
+            new_fraction.denominator = f1.denominator - f2.denominator;
+            return to_lowest(new_fraction);
+        }
+
+    d)  struct fraction multiply_fractions(struct fraction f1, struct fraction f2)
+        {
+            struct fraction new_fraction;
+            new_fraction.numerator = f1.numerator * f2.numerator;
+            new_fraction.denominator = f1.denominator * f2.denominator;
+            return to_lowest(new_fraction);
+        }
+
+    e)  struct fraction divide_fractions(struct fraction f1, struct fraction f2)
+        {
+            struct fraction new_fraction;
+            new_fraction.numerator = f1.numerator / f2.numerator;
+            new_fraction.denominator = f1.denominator / f2.denominator;
+            return to_lowest(new_fraction);
+        }
+
+8.  struct colour {
+        int red, green, blue;
+    };
+
+    a)  const struct colour MAGENTA = {255, 0, 255};
+    b)  const struct colour MAGENTA = {.red = 255, .blue = 255};
+
+9.  struct colour {
+        int red, green, blue;
+    };
+
+    a)  struct colour make_colour(int red, int green, int blue)
+        {
+            if (red < 0)          red = 0;
+            else if (red > 255)   red = 255;
+            
+            if (green < 0)        green = 0;
+            else if (green > 255) green = 255;
+
+            if (blue < 0)         blue = 0;
+            else if (blue > 255)  blue = 255;
+
+            struct colour c = {red, green blue};
+            return colour;
+        }
+
+    b)  int struct colour get_red(struct colour c)
+        {
+            return c.red;
+        }
+
+    c)  bool struct equal_colour(struct colour c1, struct colour c2)
+        {
+            if (c1.red == c2.red && c1.green == c2.green && c1.blue == c2.blue) return true;
+            return false;
+        }
+
+    d)  struct colour brighter(struct colour c)
+        {
+            struct colour new_c;
+            int red = c.red;
+            int green = c.green;
+            int blue = c.blue;
+
+            if (red == 0 && green == 0 && blue == 0)
+            {
+                new_c = {3, 3, 3};
+                return new_c;
+            }
+
+            if (red   > 0 && red   < 3) red = 3;
+            if (green > 0 && green < 3) green = 3;
+            if (blue  > 0 && blue  < 3) blue = 3;
+
+            red /= 0.7, green /= 0.7, blue /= 0.7;
+
+            if (red > 255) red = 255;
+            if (green > 255) green = 255;
+            if (blue > 255) blue = 255;
+
+            new_c = {red, green, blue};
+
+            return new_c;
+        }
+
+    e)  struct colour darker(struct colour c)
+        {
+            struct colour new_c = {c.red * 0.7,
+                                   c.green * 0.7,
+                                   c.blue * 0.7};
+            return new_c;
+        }
