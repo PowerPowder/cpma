@@ -285,3 +285,82 @@
                 return true;
             return false;
         }
+
+11. struct {
+        double a;
+        union {
+            char b[4];
+            double c;
+            int d;
+        } e;
+        char f[4];
+    } s;
+
+    Bytes allocated for s: 8 + 8 + 4 = 20 (a + c + f)
+
+12. union {
+        double a;
+        struct {
+            char b[4];
+            double c;
+            int d;
+        } e;
+        char f[4];
+    } u;
+
+    Bytes allocated for u: 4 + 8 + 4 = 16 (total for struct as that's the largest element in union)
+
+13. struct shape {
+        int shape_kind;         // RECTANGLE (0) or CIRCLE (1)
+        struct point center;    // point from ex10
+        union {
+            struct {
+                int height, width;
+            } rectangle;
+            struct {
+                int radius;
+            } circle;
+        } u;
+    } s;
+
+    a) s.shape_kind = RECTANGLE;    legal
+    b) s.center.x = 10;             legal
+    c) s.height = 25;               illegal, needs to include 'u.rectangle' to access rectangle
+    d) s.u.rectangle.width = 8;     legal
+    e) s.u.circle = 5;              illegal, '5' is not of struct circle, need to make a circle first
+    f) s.u.radius = 5;              illegal, needs to include 'circle' to access radius
+
+14. Referring to shape from ex13:
+    a)  int shape_area(struct shape s)
+        {
+            if (s.shape_kind == RECTANGLE)
+                return s.u.rectangle.width * s.u.rectangle.height;
+            else
+                return 3.14159265359 * (s.u.circle.radius * s.u.circle.radius);
+        }
+
+    b)  struct shape move_shape(struct shape s, int x, int y)
+        {
+            if (s.shape_kind == RECTANGLE)
+            {
+                s.u.rectangle.width += x;
+                s.u.rectangle.height += y;
+            }
+            else
+                s.u.circle.radius += x;
+
+            return s;
+        }
+
+    c)  struct shape scale_shape(struct shape s, double c)
+        {
+            if (s.shape_kind == RECTANGLE)
+            {
+                s.u.rectangle.width *= c;
+                s.u.rectangle.height *= c;
+            }
+            else
+                s.u.circle.radius *= c;
+
+            return s;
+        }
