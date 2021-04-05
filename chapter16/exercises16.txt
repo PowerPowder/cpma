@@ -364,3 +364,51 @@
 
             return s;
         }
+
+15. a)  enum days {
+            MONDAY = 1,
+            TUESDAY,
+            WEDNESDAY,
+            THURSDAY,
+            FRIDAY,
+            SATURDAY,
+            SUNDAY,
+        };
+    b)  typedef enum {
+            MONDAY = 1,
+            TUESDAY,
+            WEDNESDAY,
+            THURSDAY,
+            FRIDAY,
+            SATURDAY,
+            SUNDAY,
+        } days;
+
+16. a) True
+    b) False
+    c) True
+    d) False
+    e) True
+
+17. enum {FALSE, TRUE} b;
+    int i;
+    a) b = FALSE;       legal, safe
+    b) b = i;           legal, unsafe
+    c) b++;             legal, unsafe
+    d) i = b;           legal, safe
+    e) i = 2 * b + 1;   legal, safe
+
+18. typedef enum {
+        PAWN,
+        KNIGHT,
+        BISHOP,
+        ROOK,
+        QUEEN,
+        KING,
+        EMPTY
+    } Piece;
+
+    typedef enum {
+        BLACK,
+        WHITE
+    } Colour;
