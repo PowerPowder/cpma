@@ -1,0 +1,12 @@
+1.  void *my_malloc(int n)
+    {
+        void *p = malloc(n);
+
+        if (p == NULL)
+        {
+            printf("Error: allocation failed, space was not given for p");
+            exit(EXIT_SUCCESS);
+        }
+        else
+            return p;
+    }
