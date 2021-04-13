@@ -18,15 +18,15 @@
         return t;
     }
 
-int *create_array(int n, int initial_value)
-{
-	int *i, *a = malloc(n * sizeof(int));
+3.  int *create_array(int n, int initial_value)
+    {
+        int *i, *a = malloc(n * sizeof(int));
 
-	if (a == NULL)
-		return NULL;
+        if (a == NULL)
+            return NULL;
 
-	for (i = a; i < a + n; i++)
-		*i = initial_value;
+        for (i = a; i < a + n; i++)
+            *i = initial_value;
 
-	return a;
-}
+        return a;
+    }
