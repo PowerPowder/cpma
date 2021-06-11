@@ -77,3 +77,19 @@
         printf("Part name: %s\n", p->name);
         printf("Quantity on hand: %d\n", p->on_hand);
     }
+
+11. int count_occurances(struct node *list, int n)
+    {
+        int count = 0;
+        struct node *current = list;
+        
+        while (current != NULL)
+        {
+            if (n == current->value)
+                count++;
+            
+            current = current->next;
+        }
+
+        return count;
+    }
