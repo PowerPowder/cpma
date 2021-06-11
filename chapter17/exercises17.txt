@@ -69,7 +69,8 @@
 
 8.  see stack.c
 
-9.  True, (&x)->a is (*(&x)).a, &x gets the address of x, then * dereferences the address (pointer), so they both cancel each other leaving x.a
+9.  True, (&x)->a is (*(&x)).a, &x gets the address of x, then * dereferences the address (pointer),
+    so they both cancel each other leaving x.a
 
 10. void print_part(struct part *p)
     {
@@ -107,3 +108,11 @@
 
         return NULL;
     }
+
+13. The function assumes that the order goes from highest to lowest, it can't insert a node at the
+    end of the list, can't insert at the start of the list.
+
+    To fix:
+        Check if the value of the new node fits between the next node and the previous node (within range of them).
+        Check if the value should be inserted as the last node on the list.
+        Check if the current value is NULL and if so set the new node as the first.
