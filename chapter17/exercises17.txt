@@ -68,3 +68,12 @@
     }
 
 8.  see stack.c
+
+9.  True, (&x)->a is (*(&x)).a, &x gets the address of x, then * dereferences the address (pointer), so they both cancel each other leaving x.a
+
+10. void print_part(struct part *p)
+    {
+        printf("Part number: %d\n", p->number);
+        printf("Part name: %s\n", p->name);
+        printf("Quantity on hand: %d\n", p->on_hand);
+    }
