@@ -116,3 +116,21 @@
         Check if the value of the new node fits between the next node and the previous node (within range of them).
         Check if the value should be inserted as the last node on the list.
         Check if the current value is NULL and if so set the new node as the first.
+
+14. void delete_from_list3(struct node **list, int n)
+    {
+        struct node *cur, *prev;
+
+        for (cur = *list, prev = NULL; cur != NULL && cur->value != n; prev = cur, cur = cur->next)
+            ;
+
+        if (cur == NULL)
+            return;
+        if (prev == NULL)
+            *list = (*list)->next;
+        else
+            prev->next = cur->next;
+
+        free(cur);
+        *list = prev;
+    }
