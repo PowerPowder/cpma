@@ -134,3 +134,5 @@
         free(cur);
         *list = prev;
     }
+
+15. See lines 7-13 ex17.c, answer is 3
