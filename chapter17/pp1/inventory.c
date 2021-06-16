@@ -24,6 +24,8 @@ void search(void);
 void update(void);
 void print(void);
 
+int compare_part(const void *, const void *);
+
 // Prompts the user to enter an operation code, then calls a function to perform the requested action.
 // Repeats until the user enters the command 'q'. Prints an error message if the user enteres an illegal code.
 int main(void)
@@ -72,7 +74,6 @@ int find_part(int number)
 // Prints an error message and returns prematurely if the part already exists or the database is full.
 void insert(void)
 {
-    printf("max parts: %d\n", max_parts);
     int part_number;
 
     if (num_parts == max_parts)
@@ -147,6 +148,8 @@ void print(void)
 {
     int i;
 
+    qsort(inventory, num_parts, sizeof(struct part), compare_part);
+
     printf("Part Number   Part Name                  "
            "Quantity on Hand\n");
 
@@ -154,4 +157,9 @@ void print(void)
         printf("%7d       %-25s%11d\n", inventory[i].number,
                                         inventory[i].name,
                                         inventory[i].on_hand);
+}
+
+int compare_part(const void *p1, const void *p2)
+{
+    return ((struct part *)p1)->number - ((struct part *)p2)->number;
 }
