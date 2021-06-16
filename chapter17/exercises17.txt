@@ -144,3 +144,6 @@
             sum += (*f)(i);
         return sum;
     }
+
+17. int a[100] = {random values in here};
+	qsort(a+50, 50, sizeof(int), compare_ints);
