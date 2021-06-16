@@ -152,3 +152,5 @@
     {
         return ((struct part *) q)->number - ((struct part *) p)->number;
     }
+
+19. see exercise 19.c
