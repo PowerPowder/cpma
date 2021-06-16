@@ -147,3 +147,8 @@
 
 17. int a[100] = {random values in here};
 	qsort(a+50, 50, sizeof(int), compare_ints);
+
+18. int compare_parts(const void *p, const void *q)
+    {
+        return ((struct part *) q)->number - ((struct part *) p)->number;
+    }
