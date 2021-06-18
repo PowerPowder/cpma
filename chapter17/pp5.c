@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void bubbleSort(char (*s)[], int);
+int compare(const void *, const void *);
 int read_line(char [], int);
 
 int main(void)
@@ -31,24 +31,18 @@ int main(void)
         i++;
     }
 
-    for (int j = 0; j < i-1; j++)
-    {
-        for (int k = 0; k < i-j-1; k++)
-        if (strcmp(s[k], s[k+1]) > 0)
-        {
-            char *temp = malloc(20 * sizeof(char));
-            strcpy(temp, s[k]);
-            strcpy(s[k], s[k+1]);
-            strcpy(s[k+1], temp);
-            free(temp);
-        }
-    }
+    qsort(s, i, sizeof(char) * 20, compare);
 
     printf("In sorted order: ");
     for (int j = 0; j < i; j++)
         printf("%s ", s[j]);
 
     return 0;
+}
+
+int compare(const void *p, const void *q)
+{
+    return strcmp((char *)p, (char *)q);
 }
 
 int read_line(char str[], int n)
