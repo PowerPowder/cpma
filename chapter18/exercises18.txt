@@ -1,0 +1,25 @@
+Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D, Initializers = I
+1.  a) static char **lookup(int level);
+        SC: static
+        TQ: N/A
+        TS: char **
+        D:  lookup
+        I:  N/A
+    b) volatile unsigned long io_flags;
+        SC: auto (default)
+        TQ: volatile
+        TS: unsigned long
+        D:  io_flags
+        I:  N/A
+    c) extern char *file_name[MAX_FILES], path[];
+        SC: extern
+        TQ: N/A
+        TS: char *
+        D:  file_nme[MAX_FILES], path[]
+        I:  N/A
+    d) static const char token_buf[] = "";
+        SC: static
+        TQ: const
+        TS: char
+        D:  token_buf[]
+        I:  ""
