@@ -23,3 +23,7 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
         TS: char
         D:  token_buf[]
         I:  ""
+
+2.  a) auto, extern
+    b) auto, register, static
+    c) static
