@@ -27,3 +27,16 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
 2.  a) auto, extern
     b) auto, register, static
     c) static
+
+3.  extern float a;
+
+    void f(register double b)
+    {
+        static int c;
+        auto char d;
+    }
+
+    a: automatic storage duration, file scope, external linkage
+    b: static storage duration, block scope, no linkage
+    c: static storage duration, file scope, internal linkage
+    d: automatic storage duration, block scope, internal linkage
