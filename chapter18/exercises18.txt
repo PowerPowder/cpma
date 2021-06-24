@@ -49,3 +49,12 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
 
     value of f(10) being called for the first time: 10 * 0 = 0
     value of f(10) after being called 5 times: 10 * 5 = 50
+
+5.  a) Every variable with static duration has file scope.
+        False - if a variable is static or extern within a function it is block scope.
+    b) Every variable declared inside a function has no linkage.
+        False - if the variable is extern then it may have external linkage.
+    c) Every variable with internal linkage has static storage duration. 
+        True  - when a variable is static, it is only allowed to be used in that file.
+    d) Every parameter has block scope. 
+        True  - all parameters are always relative to the function because they are only defined for the function.
