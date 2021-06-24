@@ -40,3 +40,12 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
     b: static storage duration, block scope, no linkage
     c: static storage duration, file scope, internal linkage
     d: automatic storage duration, block scope, internal linkage
+
+4.  int f(int i)
+    {
+        static int j = 0;
+        return i * j++;
+    }
+
+    value of f(10) being called for the first time: 10 * 0 = 0
+    value of f(10) after being called 5 times: 10 * 5 = 50
