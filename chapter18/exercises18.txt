@@ -72,3 +72,35 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
     b) The compiler will check that no assignment is made to x. True
     c) x is subject to the same scope rules as variables. True
     d) x can be of any type. True
+
+8.  a) char (*x[10])(int);
+        x is: an array of pointers to functions with an int parameter that returns a char
+        1. array of
+        2. pointers to
+        3. functions with an int parameter
+        4. that returns a char
+
+    b) int (*x(int))[5];
+        x is: a function with an int parameter that points to an array of type int
+        1. a function with an int parameter
+        2. that points to
+        3. an array
+        4. of type int
+        
+    c) float *(*x(void))(int);
+        x is: a function with no arguments that points to a function with an int parameter returning pointer to float
+        1. a function with no arguments
+        2. that points to
+        3. a function with an int parameter
+        4. returning pointer to float
+
+    d) void (*x(int, void (*y)(int)))(int);
+        y is: a pointer to a function that has an int parameter that returns void
+        1. a pointer to
+        2. a function that has an int parameter
+        3. that returns void
+        x is: a function that has an int parameter and a pointer to y that points to a function with an int parameter that returns void
+        1. a function that has an int parameter and a pointer to y
+        2. that points to
+        3. a function with an int parameter
+        4. that returns void
