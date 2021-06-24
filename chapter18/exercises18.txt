@@ -142,3 +142,11 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
         int (*g(int))(int);
     int a[10](int);     // can't functions as array elements
         int (*a(int))[10]; // first attempt, should be: int (*a[10])(int);
+
+12. a) int (*f(float (*)(long), char *))(double);
+        f is: a function
+              that has two arguments - a pointer to a function with a long argument and returns a float
+                                       a pointer to char
+              that returns a pointer to
+              a function with one double argument
+              that returns an int
