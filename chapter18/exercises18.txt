@@ -104,3 +104,25 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
         2. that points to
         3. a function with an int parameter
         4. that returns void
+
+9.  a) char (*x[10])(int);
+        typedef char Func(int);
+        typedef Func *Func_ptr;
+        typedef Func_ptr Func_ptr_array[10];
+        Func_ptr_array x;
+    b) int (*x(int))[5];
+        typedef int Arr[5];
+        typedef Arr *Func_ptr; 
+        typedef Func_ptr Func(int)
+        Func x;
+    c) float *(*x(void))(int);
+        typedef float *Func(int);
+        typedef Func *Func_ptr;
+        typedef Func_ptr Func_ptr_Func(void);
+        Func_ptr_Func x;
+    d) void (*x(int, void (*y)(int)))(int);
+        typedef void Func(int);
+        typedef Func *Func_ptr;
+        typedef void (*Func_y)(int);
+        typedef Func_ptr Func_ptr_Func(int, Func_y)(int));
+        Func_ptr_Func x;
