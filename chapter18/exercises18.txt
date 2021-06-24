@@ -150,3 +150,22 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
               that returns a pointer to
               a function with one double argument
               that returns an int
+
+13. PI is a macro that represents 3.14159
+    a) char c = 65;                                   legal
+    b) static int i = 5, j = i * i;                   illegal
+    c) double d = 2 * PI;                             legal
+    d) double angles[] = {0, PI / 2, PI, 3 * PI / 2}; legal
+
+14. Which kind of variable cannot be initialised?
+    a) Array variables
+    b) Enumeration variables
+    c) Structure variables
+    d) Union variables
+    e) None of the above <-----
+
+15. Which property of a variable determines whether or not it has a default initial value?
+    a) Storage duration <-----
+    b) Scope
+    c) Linkage
+    d) Type
