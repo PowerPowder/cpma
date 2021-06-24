@@ -135,3 +135,10 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
         void (*a[])(void) = {insert, search, update, print};
     d) b is an array of 10 pointers to functions with two int arguments that return structures with tag t.
         struct t (*b[10])(int, int);
+
+11. int f(int)[];       // can't return array
+        int *f(int);
+    int g(int)(int);    // can't return function
+        int (*g(int))(int);
+    int a[10](int);     // can't functions as array elements
+        int (*a(int))[10]; // first attempt, should be: int (*a[10])(int);
