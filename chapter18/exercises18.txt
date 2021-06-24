@@ -67,3 +67,8 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
 
     n should be static, resulting in the line being 'static int n = 1', then n will retain it's value
     each time print_error is called.
+
+7.  a) If x is of type int, it can be used as the value of a case label in a switch statement. False
+    b) The compiler will check that no assignment is made to x. True
+    c) x is subject to the same scope rules as variables. True
+    d) x can be of any type. True
