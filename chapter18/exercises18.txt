@@ -58,3 +58,12 @@ Storage Class = SC, Type Qualifiers = TQ, Type Specifiers = TS, Declarators = D,
         True  - when a variable is static, it is only allowed to be used in that file.
     d) Every parameter has block scope. 
         True  - all parameters are always relative to the function because they are only defined for the function.
+
+6.  void print_error(const char *message)
+    {
+        int n = 1;
+        printf("Error %d: %s\n", n++, message);
+    }
+
+    n should be static, resulting in the line being 'static int n = 1', then n will retain it's value
+    each time print_error is called.
