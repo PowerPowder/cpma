@@ -1,0 +1,39 @@
+10	20	30	40	50
+ |				|
+first		               last
+
+need to insert 60 but queue size is 5 and there are already 5 elements in the queue
+
+60	20	30	40	50
+ |	|
+last  first
+
+remove the first 3 items
+
+60	?	?	?	50
+|				|
+last			      first
+
+insert 2 items: 70 and 80
+
+60	70	80	?	50
+		|		|
+	       last	      first
+
+remove the rest until the queue is empty
+
+60	70	80	?	?
+|	|
+first  last
+
+?	70	80	?	?
+	|	|
+      first    last
+
+?	?	80	?	?
+		|
+               f/l
+
+?	?	?	?	?
+
+is_empty() is now true

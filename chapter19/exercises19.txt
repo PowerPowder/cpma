@@ -1,1 +1,6 @@
-1.  see queue.h
+1.  see queue/queue.h
+
+2.  see stack2.c in 19.2_example (calc.c is to test that it works).
+
+3.  a) see queue/queue1.c
+    b) see queue/queue2.c
