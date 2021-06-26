@@ -4,3 +4,6 @@
 
 3.  a) see queue/queue1.c
     b) see queue/queue2.c
+
+4.  a) see stack1/stack1.c
+    b) see stack2/stack1.c

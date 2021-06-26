@@ -16,4 +16,6 @@ bool is_full(const Stack *s);
 void push(Stack *s, int i);
 int pop(Stack *s);
 
+void display(Stack *s);
+
 #endif

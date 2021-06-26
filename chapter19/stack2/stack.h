@@ -3,11 +3,13 @@
 
 #include <stdbool.h>
 
-#define STACK_SIZE 100
+struct node {
+    int data;
+    struct node *next;
+};
 
 typedef struct {
-    int contents[STACK_SIZE];
-    int top;
+    struct node *top;
 } Stack;
 
 void make_empty(Stack *s);
@@ -15,5 +17,6 @@ bool is_empty(const Stack *s);
 bool is_full(const Stack *s);
 void push(Stack *s, int i);
 int pop(Stack *s);
+void display(Stack *s);
 
 #endif
