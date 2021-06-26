@@ -58,7 +58,16 @@ bool is_full(Stack s)
 void push(Stack s, Item i)
 {
     if (is_full(s))
-        terminate("Error in push: stack is full.");
+    {
+        Item *new_space = malloc(s->size * 2 * sizeof(Item));
+        for (int i = 0; i < s->top; i++)
+            new_space[i] = s->contents[i];
+
+        free(s->contents);
+        s->contents = new_space;
+        s->size *= 2;
+    }
+
     s->contents[s->top++] = i;
 }
 

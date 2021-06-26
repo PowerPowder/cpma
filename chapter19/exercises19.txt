@@ -13,3 +13,5 @@
 6.  a) See stackADT1/stackADT.c (peek function)
     b) See stackADT2/stackADT2.c (peek function)
     c) See stackADT3/stackADT3.c (peek function)
+
+7.  See stackADT2/stackADT2.c (push function)
