@@ -7,3 +7,5 @@
 
 4.  a) see stack1/stack1.c
     b) see stack2/stack1.c
+
+5.  See queue2.h
