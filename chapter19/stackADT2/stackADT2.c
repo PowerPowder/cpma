@@ -68,3 +68,8 @@ Item pop(Stack s)
         terminate("Error in pop: stack is empty.");
     return s->contents[--s->top];
 }
+
+Item peek(Stack s)
+{
+    return s->contents[s->top - 1];
+}

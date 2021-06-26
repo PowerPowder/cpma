@@ -9,3 +9,7 @@
     b) see stack2/stack1.c
 
 5.  See queue2.h
+
+6.  a) See stackADT1/stackADT.c (peek function)
+    b) See stackADT2/stackADT2.c (peek function)
+    c) See stackADT3/stackADT3.c (peek function)

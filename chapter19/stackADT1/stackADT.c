@@ -57,3 +57,8 @@ int pop(Stack s)
         terminate("Error in pop: stack is empty.");
     return s->contents[--s->top];
 }
+
+int peek(Stack s)
+{
+    return s->contents[s->top - 1];
+}

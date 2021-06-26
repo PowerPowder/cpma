@@ -75,3 +75,8 @@ Item pop(Stack s)
     free(old_top);
     return i;
 }
+
+Item peek(Stack s)
+{
+    return s->top->data;
+}
