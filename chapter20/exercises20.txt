@@ -30,3 +30,23 @@
                 7 ^ (8 & 9)
                 7 ^ 8
                 15
+
+2.  Using the ~ operator, you can flip all bits, and using the << and >> operators you can toggle a bit
+	int i = 78;
+	unsigned short m = ((~(i >> 4) & 1) << 4) | (~0x10 & i);
+    
+	/*
+		0000000000010101: 21
+		0000000000000001: shift bit 4 to bit 0
+		1111111111111110: flip all bits to toggle
+		0000000000000000: & above with 1 to remove bits after bit 4
+		0000000000000000: move the bit back to bit 4
+		0000000000000101: & it with ~16
+
+		0000000000000101: 5
+		0000000000000000: get bit 4 to bit 0 
+		1111111111111111: toggle bit
+		0000000000000001: & above with 1
+		0000000000010000: move to bit 4
+		0000000000010101: | it with original number
+	*/
