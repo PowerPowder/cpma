@@ -102,3 +102,33 @@
         {
             return (i >> 8) | ((i & 0xFF) << 8);
         }
+
+7.  unsigned int rotate_left(unsigned int i, int n)
+    {
+        return (i << n) | (i >> 32 - n);
+    }
+
+    unsigned int rotate_right(unsigned int i, int n)
+    {
+        return (i >> n) | (i << 32 - n);
+    }
+
+8.  unsigned int f(unsigned int i, int m, int n)
+    {
+        return (i >> (m + 1 - n)) & ~(~0 << n);
+    }
+
+    a) What is the value of: ~(~0 << n)
+        11111111 11111111: ~0
+        11111111 11110000: n = 4, shift to the left by 4
+        00000000 00001111: flip all bits
+    b) What does the function do?
+        This function gets the bits from m to m-n, shifts them to fit in a n block from the right.
+        Example:
+            Below is the size of the block of bits:
+              |-------|
+            01010110 01111000
+
+            Then this block is moved to the start of the int:
+            00000000 01011001
+                     |------|
