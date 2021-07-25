@@ -84,3 +84,21 @@
 5.  #define GET_RED(colour) (colour) >> 16 & 0xFF
     #define GET_GREEN(colour) (colour) >> 8 & 0xFF
     #define GET_BLUE(colour) (colour) & 0xFF
+
+6.  a)  unsigned short swap_bytes(unsigned short i)
+        {
+            unsigned short j = i >> 8;
+            unsigned short k = (i & 0xFF) << 8;
+            return j | k;
+        }
+
+        unsigned short i;
+        printf("Enter a hexadecimal number (up to four digits): ");
+        scanf("%hx", &i);
+        i = swap_bytes(i);
+        printf("Number with bytes swapped: %hx\n", i);
+
+    b)  unsigned short swap_bytes(unsigned short i)
+        {
+            return (i >> 8) | ((i & 0xFF) << 8);
+        }
