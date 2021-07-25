@@ -80,3 +80,7 @@
 	unsigned long colour = MK_COLOUR(254, 254, 254);
     makes: 
     0000000000000000000000000000000000000000111111101111111011111110 
+
+5.  #define GET_RED(colour) (colour) >> 16 & 0xFF
+    #define GET_GREEN(colour) (colour) >> 8 & 0xFF
+    #define GET_BLUE(colour) (colour) & 0xFF
