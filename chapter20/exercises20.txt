@@ -168,3 +168,47 @@
 
         return new;
     }
+
+11. #define SHIFT_BIT 1
+    #define CTRL_BIT  2
+    #define ALT_BIT   4
+
+    if (key_code & (SHIFT_BIT | CTRL_BIT | ALT_BIT) == 0)
+        printf("No modifier keys pressed\n");
+
+    The if statement doesn't work because the precedence of == is higher than &, resulting in
+    '(SHIFT_BIT | CTRL_BIT | ALT_BIT) == 0' which is never true.
+
+    To fix it, change it to:
+	if (!(key_code & (SHIFT_BIT | CTRL_BIT | ALT_BIT)))
+        printf("No modifier keys pressed\n");
+
+12. unsigned short create_short(unsigned char high_byte, unsigned char low_byte)
+    {
+        return high_byte << 8 + low_byte;
+    }
+
+    The function doesn't work because the precedence of + is higher than <<, resulting in
+    '8 + low_byte', which then shifts high_byte much further than anticipated.
+
+    To fix it, change + into | to add the low_byte to the binary string:
+    return high_byte << 8 | low_byte;
+
+13. unsigned int n;
+    n &= n - 1;
+
+    The above line sets n to the common bits of n and n-1, for example, when n = 10:
+    00000000 00000000 00000000 00001010: 10 (n)
+    00000000 00000000 00000000 00001011: 9  (n-1)
+    ---------------------------------------
+    00000000 00000000 00000000 00001010: 8  (n)
+
+    00000000 00000000 00000000 00001010: 8  (n)
+    00000000 00000000 00000000 00000111: 7  (n-1)
+    ---------------------------------------
+    00000000 00000000 00000000 00000010: 2  (n)
+
+    00000000 00000000 00000000 00000010: 2  (n)
+    00000000 00000000 00000000 00000001: 1  (n-1)
+    ---------------------------------------
+    00000000 00000000 00000000 00000000: 0  (n)
