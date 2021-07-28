@@ -212,3 +212,26 @@
     00000000 00000000 00000000 00000001: 1  (n-1)
     ---------------------------------------
     00000000 00000000 00000000 00000000: 0  (n)
+
+14. struct float_type {
+		unsigned int sign: 1;
+		unsigned int exponent: 8;
+		unsigned int fraction: 23;
+	
+16. union {
+		struct {
+			DWORD eax, ebx, ecx, edx;
+		} dword;
+		struct {
+			WORD ax; WORD: 2; 
+			WORD bx; WORD: 2;  
+			WORD cx; WORD: 2; 
+			WORD dx; WORD: 2; 
+		} word;
+		struct {
+			BYTE al; BYTE: 1; BYTE ah; BYTE: 1;
+			BYTE bl; BYTE: 1; BYTE bh; BYTE: 1;
+			BYTE cl; BYTE: 1; BYTE ch; BYTE: 1;
+			BYTE dl; BYTE: 1; BYTE dh; BYTE: 1;
+		} byte;
+	} regs;
