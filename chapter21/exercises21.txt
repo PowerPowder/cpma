@@ -1,0 +1,12 @@
+1.I'm using GNU/Linux so h eader files are stored at '/usr/include', other includes include (as well as folders with includes) are:
+GL elf.h features.h getopt.h langinfo.h netnet rom protocol srpc sound sudo_plugin.h video zlib.h
+X11 byteswap.h endian.h glob.h lastlog.h mch eck.h netash netrose pth read.h rpcsvc spawn.h
+syscall.h ttyent.h wait.h aio.h envz.h finclude gnu-versions.h libdmmp memory.h netatalk nfs pty.h
+sch ed.h stab.h sysexits.h uch ar.h wch ar.h aliases.h ex.h err.h fmtmsg.h gnumake.h libgen.h misc
+netax25 nl_types.h pwd.h scsi stdc-predef.h syslog.h ucontext.h alloca.h cpio.h fnmatch.h grp.h
+libintl.h mntent.h netdb.h nss.h pyth on3.8search.h tar.h ulimit.h wordexp.h ar.h crypt.h error.h
+fstab.h shadow.h monetary.h neteconetobstack.h rdma semaph ore.h termio.h unistd.h x86_64-linux-gnu
+argp.h execinfo.h fts.h iconv.h link.h mpath_cmd.h netinetpath s.h re_comp.h stdio_ext.h termios.h
+utime.h xcb argz.h dirent.h expat.h ftw.h ifaddrs.h linux mpath_persist.h netipx poll.h regex.h
+sgtty.h utmp.h xen arpa dlfcn.h expat_external.h gawkapi.h mqueue.h netiucvprintf.h regexp.h
+shadow.h th read_db.h utmpx.h xfs
