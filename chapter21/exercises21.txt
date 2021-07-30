@@ -1,12 +1,34 @@
-1.I'm using GNU/Linux so h eader files are stored at '/usr/include', other includes include (as well as folders with includes) are:
-GL elf.h features.h getopt.h langinfo.h netnet rom protocol srpc sound sudo_plugin.h video zlib.h
-X11 byteswap.h endian.h glob.h lastlog.h mch eck.h netash netrose pth read.h rpcsvc spawn.h
-syscall.h ttyent.h wait.h aio.h envz.h finclude gnu-versions.h libdmmp memory.h netatalk nfs pty.h
-sch ed.h stab.h sysexits.h uch ar.h wch ar.h aliases.h ex.h err.h fmtmsg.h gnumake.h libgen.h misc
-netax25 nl_types.h pwd.h scsi stdc-predef.h syslog.h ucontext.h alloca.h cpio.h fnmatch.h grp.h
-libintl.h mntent.h netdb.h nss.h pyth on3.8search.h tar.h ulimit.h wordexp.h ar.h crypt.h error.h
-fstab.h shadow.h monetary.h neteconetobstack.h rdma semaph ore.h termio.h unistd.h x86_64-linux-gnu
-argp.h execinfo.h fts.h iconv.h link.h mpath_cmd.h netinetpath s.h re_comp.h stdio_ext.h termios.h
-utime.h xcb argz.h dirent.h expat.h ftw.h ifaddrs.h linux mpath_persist.h netipx poll.h regex.h
-sgtty.h utmp.h xen arpa dlfcn.h expat_external.h gawkapi.h mqueue.h netiucvprintf.h regexp.h
-shadow.h th read_db.h utmpx.h xfs
+1.  I'm using GNU/Linux so h eader files are stored at '/usr/include', other includes include (as
+    well as folders with includes) are:
+        GL elf.h features.h getopt.h langinfo.h netnet rom protocol srpc sound sudo_plugin.h video zlib.h
+        X11 byteswap.h endian.h glob.h lastlog.h mch eck.h netash netrose pth read.h rpcsvc spawn.h
+        syscall.h ttyent.h wait.h aio.h envz.h finclude gnu-versions.h libdmmp memory.h netatalk nfs pty.h
+        sch ed.h stab.h sysexits.h uch ar.h wch ar.h aliases.h ex.h err.h fmtmsg.h gnumake.h libgen.h misc
+        netax25 nl_types.h pwd.h scsi stdc-predef.h syslog.h ucontext.h alloca.h cpio.h fnmatch.h grp.h
+        libintl.h mntent.h netdb.h nss.h pyth on3.8search.h tar.h ulimit.h wordexp.h ar.h crypt.h error.h
+        fstab.h shadow.h monetary.h neteconetobstack.h rdma semaph ore.h termio.h unistd.h x86_64-linux-gnu
+        argp.h execinfo.h fts.h iconv.h link.h mpath_cmd.h netinetpath s.h re_comp.h stdio_ext.h termios.h
+        utime.h xcb argz.h dirent.h expat.h ftw.h ifaddrs.h linux mpath_persist.h netipx poll.h regex.h
+        sgtty.h utmp.h xen arpa dlfcn.h expat_external.h gawkapi.h mqueue.h netiucvprintf.h regexp.h
+        shadow.h th read_db.h utmpx.h xfs
+
+2.  The stdio.h header undef's many macros, eg:
+        #define getchar() getc(stdin)
+
+3.  The function protoype must come first because the preprocessor needs to know that the function
+    exists before it hides it.
+
+5.  islower(c) ((c) >= 'a' && (c) <= 'z')
+    is not legal because a parameterized macro must be fully protected by parenthesees and evaluate
+    it's arguments once. The above evaluates c twice so it doesn't meet the criteria.
+
+6.  a)  The bit macros (_UPPER, _LOWER, etc) and the _ctype array have an underscore because they are
+        identifiers with file scope.
+    b)  The _ctype array contains chars used as binary strings that have a 1 for each attribute of
+        the character all ASCII characters:
+            _ctype[9] ('\t'): 00101000
+            _ctype[32] (' '): 10100000
+            _ctype[65] ('A'): 01000001
+            _ctype[94] ('^'): 00010000
+    c)  The advantage to using an array for the macros is that is performs better, it has all the
+        information it needs about the character's properties.
