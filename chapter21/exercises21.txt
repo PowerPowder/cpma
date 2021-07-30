@@ -32,3 +32,13 @@
             _ctype[94] ('^'): 00010000
     c)  The advantage to using an array for the macros is that is performs better, it has all the
         information it needs about the character's properties.
+
+7.  What standard headers would be used for the following:
+        a) Current day of the week                              time.h
+        b) Sees if the character is a digit                     ctype.h
+        c) Largest unsigned int value                           limits.h
+        d) Rounds a floating point number to the next integer   math.h
+        e) Number of bits in a character                        stdlib.h
+        f) Number of significant digits in a double             float.h
+        g) Searches a string for a particular character         string.h
+        h) Opens a file for reading                             stdio.h
