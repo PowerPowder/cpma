@@ -1,0 +1,5 @@
+1.  Binary or text data?
+    a) Object code from a C compiler: Binary data
+    b) Program listing from a C compiler: Text data
+    c) Email sent from a computer: Text data
+    d) A file containing a graphics image: Binary data
