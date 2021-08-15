@@ -20,3 +20,16 @@
     The following line contains an error:
         if (fp = fopen(filename, "r"))
     to fix it, check if the statement is not equal to NULL.
+
+4.  Show howw the following will look with '%#012.5g' in printf:
+    a) 83.7361          00000083.736
+    b) 29748.6607       00000029749.
+    c) 1054932234.0     001.0549e+09
+    d) 0.0000235218     002.3522e-05
+
+5.  Is there a difference between '%.4d' and '%04d'?
+    No, both present the same results, eg:
+    1 -> '%.4d': 0001
+    1 -> '%04d': 0001
+
+6.  printf("%d %s", wiget, wiget == 1 ? "wiget" : "wigets");
