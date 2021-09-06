@@ -43,3 +43,27 @@
 8.  scanf(" %c") vs scanf("%1s")
     Both give the same result, but " %c" matches a character, whereas "%1s" matches a string of length 1.
     A warning also comes from "%1s" if you give it a char to put the value in, it expects a char *.
+
+9.  Which are not valid when reading a character from standard input:
+    a) getch()      Invalid
+    b) getchar()      Valid
+    c) getc(stdin)    Valid
+    d) fgetc(stdin)   Valid
+
+10. fcopy.c has no error checking:
+    if (ferror(fp))
+    {
+        fprintf(stderr, "An error has occured when copying from %s to %s\n", argv[1], argv[2]);
+        fclose(source_fp);
+        fclose(dest_fp);
+        exit(EXIT_FAILURE);
+    }
+
+11. Turning:
+    while ((ch = getc(source_fp)) != EOF)
+    into:
+    while (ch = getc(source_fp) != EOF)
+    would result in while (ch = (getc(source_fp) != EOF))
+
+    This means that ch will only be 0 or 1 because getc is being compared with EOF, resulting in
+    either a true of false statement.
