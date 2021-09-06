@@ -67,3 +67,43 @@
 
     This means that ch will only be 0 or 1 because getc is being compared with EOF, resulting in
     either a true of false statement.
+
+12. int count_periods(const char *filename)
+    {
+        FILE *fp;
+        int ch, n = 0;
+
+        if ((fp = fopen(filename, "r")) != NULL)
+        {
+            while ((ch = fgetc(fp)) != EOF)
+            {
+                if (ch == '.')
+                    n++;
+            }
+            
+            fclose(fp);
+        }
+
+        return n;
+    }
+
+13. int line_length(const char *filename, int n)
+    {
+        FILE *fp;
+        int ch, i = 0, line = 1;
+
+        if ((fp = fopen(filename, "r")) != NULL)
+        {
+            while ((ch = fgetc(fp)) != EOF)
+            {
+                if (ch == '\n')
+                    line++;
+                if (line == n)
+                    i++;
+            }
+
+            fclose(fp);
+        }
+
+        return i-1;
+    }
