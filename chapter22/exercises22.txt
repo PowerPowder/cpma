@@ -107,3 +107,38 @@
 
         return i-1;
     }
+
+14. a)  char *cfgets(char * restrict s, int n, FILE * restrict stream)
+        {
+            int ch, i = 0;
+
+            while ((ch = getc(stream)) != EOF && i < n-1)
+            {
+                s[i++] = ch;
+                if (ch == '\n')
+                    break;
+            }
+
+            if (i == 0 || ferror(stream))
+                return NULL;
+
+            s[i] = '\0';
+
+            return s;
+        }
+
+    b)  int cfputs(const char * restrict s, FILE * restrict stream)
+        {
+            int i;
+            for (i = 0; *s != '\0'; s++, i++)
+            {
+                if (s[i] == EOF)
+                    return EOF;
+                putc(*s, stream);
+            }
+
+            if (i == 0)
+                return -1;
+
+            return i;
+        }
